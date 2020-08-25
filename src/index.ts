@@ -14,6 +14,7 @@ server.all('*', (_req, res) => {
     return res.status(404).end('404');
 });
 
+
 server.listen(port, (err) => {
     if (err) throw err;
     console.log(`> Ready on http://localhost:${port}`);
