@@ -9,11 +9,9 @@ server.use('/hello', helloController);
 
 server.use('/birds', birds);
 
-
 server.all('*', (_req, res) => {
     return res.status(404).end('404');
 });
-
 
 server.listen(port, (err) => {
     if (err) throw err;
