@@ -20,11 +20,13 @@ COPY ./yarn.lock .
 RUN yarn --frozen-lockfile
 
 COPY . .
+ENV NODE_ENV=production
 RUN yarn build
 RUN yarn --frozen-lockfile --production
 
 FROM node:12-alpine
 WORKDIR /app
+ENV NODE_ENV=production
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
 COPY ./package.json .

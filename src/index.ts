@@ -1,6 +1,5 @@
 import express from 'express';
-
-const port = parseInt(`${process.env.PORT}`, 10) || 3000;
+import { port } from './configs/common';
 
 const server = express();
 
