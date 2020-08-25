@@ -1,13 +1,14 @@
 import express from 'express';
 import { port } from './configs/common';
+import helloController from './router/hello';
+import birds from './router/birds';
 
 const server = express();
 
-server.all('/hello', (_req, res) => {
-    return res.status(200).json({
-        name: 'John Doe',
-    });
-});
+server.use('/hello', helloController);
+
+server.use('/birds', birds);
+
 
 server.all('*', (_req, res) => {
     return res.status(404).end('404');
